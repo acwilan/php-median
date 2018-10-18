@@ -10,7 +10,9 @@ include_once 'Benchmark.php';
 
 $testSuiteResults = array();
 
-echo "Running test suite...";
+echo "**********************".PHP_EOL;
+echo "* Running test suite *".PHP_EOL;
+echo "**********************".PHP_EOL;
 
 /**
  * Small dataset
@@ -28,6 +30,7 @@ Benchmark::instance()
     ->data($data)
     ->call(array('MedianHeap', 'getMedian'))
     ->reportTo($testSuiteResults);
+echo PHP_EOL."Testing small dataset with heap strategy. Median: {$testSuiteResults[0]['median']}. Elapsed time: {$testSuiteResults[0]['elapsed']} ms.";
 
 // Using array
 Benchmark::instance()
@@ -36,6 +39,7 @@ Benchmark::instance()
     ->data($data)
     ->call('array_median')
     ->reportTo($testSuiteResults);
+echo PHP_EOL."Testing small dataset with array strategy. Median: {$testSuiteResults[1]['median']}. Elapsed time: {$testSuiteResults[1]['elapsed']} ms.";
 
 
 /**
@@ -54,6 +58,7 @@ Benchmark::instance()
     ->data($data)
     ->call(array('MedianHeap', 'getMedian'))
     ->reportTo($testSuiteResults);
+echo PHP_EOL."Testing medium dataset with heap strategy. Median: {$testSuiteResults[2]['median']}. Elapsed time: {$testSuiteResults[2]['elapsed']} ms.";
 
 // Using array
 Benchmark::instance()
@@ -62,6 +67,7 @@ Benchmark::instance()
     ->data($data)
     ->call('array_median')
     ->reportTo($testSuiteResults);
+echo PHP_EOL."Testing medium dataset with array strategy. Median: {$testSuiteResults[3]['median']}. Elapsed time: {$testSuiteResults[3]['elapsed']} ms.";
 
 
 /**
@@ -80,6 +86,7 @@ Benchmark::instance()
     ->data($data)
     ->call(array('MedianHeap', 'getMedian'))
     ->reportTo($testSuiteResults);
+echo PHP_EOL."Testing large dataset with heap strategy. Median: {$testSuiteResults[4]['median']}. Elapsed time: {$testSuiteResults[4]['elapsed']} ms.";
 
 // Using array
 Benchmark::instance()
@@ -88,8 +95,9 @@ Benchmark::instance()
     ->data($data)
     ->call('array_median')
     ->reportTo($testSuiteResults);
+echo PHP_EOL."Testing large dataset with array strategy. Median: {$testSuiteResults[5]['median']}. Elapsed time: {$testSuiteResults[5]['elapsed']} ms.";
 
-echo " Finished. Generating report...";
+echo PHP_EOL."Finished. Generating report...";
 
 $report = array();
 
