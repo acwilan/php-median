@@ -26,6 +26,27 @@ It uses three different datasets to test against, small, medium and large, given
 
 In the tests executed, it was found out that the array strategy was faster in all three. On average, the array strategy was around 400% faster than the heap.
 
+### Results
+
+![Test results](test_results.png)
+
+Strategy|Size|Median|Milliseconds
+--------|----|------|------------
+Heap|Small|5152.5|0.000808ms
+Array|Small|5152.5|0.000602ms
+Heap|Medium|5074.5|0.046733ms
+Array|Medium|5074.5|0.006910ms
+Heap|Large|4998|2.971975ms
+Array|Large|4998|0.678272ms
+
+Size|Time diff|Winner
+----|---------|------
+Small|0.000206ms|Array
+Medium|0.039823ms|Array
+Large|2.293703ms|Array
+
+The difference is very small, but the array strategy is definitely a winner.
+
 ## Requirements
 
 - PHP >= 5 CLI
